@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}Sistema ADDAC-FADCANIC{% endblock %}</title>
+ 
+ <!--   <style type="text/css">
+        @import url(media/css/estilo.css);
+    </style> -->
+
+    <link rel="stylesheet" href="/media/css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/vtip.css" />
+    <script type="text/javascript" src="/media/js/jquery.js"></script>
+    <script type="text/javascript" src="/media/js/vtip.js"></script>
+    <script type="text/javascript" src="/media/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="/media/js/menu.js"></script>
+    
+{% block extraheader %}
+{% endblock %}
+{% block extra_js %}
+{% endblock %}
+</head>
+<body onload="" onunload="GUnload()">
+    <div id="contenedor" class="centro">
+        
+        <!-- Comienza el header -->
+        <div id="header">
+	{% block header %}
+            <div id="header_banner" class="izq"></div>
+            <div id="sesion" class="der">
+             {% if user.username %}
+  Bienvenido {{ user.username }} | <a href="/admin" title="Ir a Administración" class="vtip" ><img src="/media/imagen/ayuda.jpg" >Administrar</a> | <a href="/logout" title="Salir de Administración" class="vtip" >Salir</a> {% else %} <a href="/admin" title="Entrar a Administración" class="vtip" > <img src="/media/imagen/usuario.jpg" > Entrar</a> {% endif %}
+
+	{% endblock %}
+            </div>
+        </div>
+        <!-- Termina el header -->
+        
+        <!-- Comienza menu-->
+        <div id="menu">
+	{% block menu %}
+                    <ul id="nav" class="izq" >
+                            <li><a href="/" title="Nueva consulta" class="vtip"><img src="/media/imagen/home.png" > Inicio</a>
+                            </li>
+                            <li><a href="#"><img src="/media/imagen/tabla.png">Tablas</a>
+                                    <ul> 
+                                    <li><a href="/finca">Datos Generales</a></li>
+                                    <li><a href="/educacion">Educacion</a></li> 
+                                    <li><a href="/cobertura-boscosa">Cobertura Boscosa</a></li>
+                                    <li><a href="/sistema-agroforestal">Sistema Agroforestal</a></li>
+                                    <li><a href="/produccion">Produccion</a></li>
+                                    <li><a href="/ingreso">Ingreso Familiar</a></li>
+                                    <li><a href="/seguridad-alimentaria">Seguridad Alimentaria</a></li>
+                                    <li><a href="/credito">Credito</a></li>
+                                    <li><a href="/decision">Tomas de decision</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/grafos" title="Consultar graficos" class="vtip"><img src="/media/imagen/grafo.png">Gráficos</a></li>
+                            <li><a href="/ayuda" title="Ayuda del sistema" class="vtip"><img src="/media/imagen/ayudamenu.png">Ayuda</a></li>
+                     </ul>
+           {% endblock %}
+        <!-- Termina menu-->
+              <div id="variable_session" class="der" >
+                <b>Filtros</b> :: Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}} |
+              </div>
+        </div>
+            <!-- Comienza Contenido-->
+	
+            <div id="contenido">
+               <div id="colum_izq" class="izq">
+		{% block content %}
+                    <h1> Formulario Principal </h1>
+                    <h2> Escojer opciones </h2>
+
+		{% endblock %}
+               </div>
+               <div id="colum_der" class="der">
+		{% block siderbar %}
+                    <a href="/finca"><img src="/media/imagen/general.jpg"></a>
+                    <a href="/educacion"><img src="/media/imagen/educacion.jpg"></a>
+                    <a href="/cobertura-boscosa"><img src="/media/imagen/boscosa.jpg"></a>
+                    <a href="/sistema-agroforestal"><img src="/media/imagen/agroforestal.jpg"></a>
+                    <a href="/produccion"><img src="/media/imagen/produccion.jpg"></a>
+                    <a href="/ingreso"><img src="/media/imagen/ingreso.jpg"></a>
+                    <a href="/seguridad-alimentaria"><img src="/media/imagen/seguridad.jpg"></a>
+                    <a href="/credito"><img src="/media/imagen/credito.jpg"></a>
+		{% endblock %}
+               </div>
+               <div id="separador"></div>
+
+            </div>
+            
+            <div id="contenido_inferior"></div>
+        <!-- Termina Contenido-->
+        
+        <!-- Comienza Footer-->
+        
+        <div id="footer">
+	{% block footer %}
+<map name="footer2">
+<area alt="Fadcanic" shape="RECT" coords="67,100,160,20" href="http://www.fadcanic.org.ni" target="blank" title="Fadcanic">
+<area alt="Addac" shape="RECT" coords="220,89,340,22" href="http://www.addac.org.ni" target="blank" title="Addac">
+<area alt="Norwegian embassy" shape="RECT" coords="400,100,570,30" href="http://www.noruega.org.ni" target="blank" title="Norwegian embassy">
+</map>
+<img src="/media/imagen/footer2.jpg" width="916" height="150" usemap="#footer2"> 
+            <div id="simas"> Desarrollado por <a href="http://www.simas.org.ni">SIMAS</a> 2009 usando <a href="http://www.djangoproject.org">Django</a> framework</div>
+	{% endblock %}
+        </div>
+        <!-- Termina Footer-->
+        
+    </div>
+    <!-- Termina Contenedor-->
+</body>
+</html>

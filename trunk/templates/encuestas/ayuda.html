@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+
+{% block content %}
+
+<h1>Ayuda</h1>
+<p>1. Para poder hacer consultas al sistema de indicadores de addac-fadcanic lo primero que debemos hacer es decidir cual de las 2 consultas basicas queremos.</p><center><img src="/media/imagen/cuadro1.png"></center><br>
+<p><strong>Búsqueda general:</strong> Aquí se tienen los siguientes filtros.
+<ul>
+<li><strong>Fecha:</strong> Se debe seleccionar  la fecha que se levanto la encuesta, como valor predeterminado aparece 2009.</li>
+<br>
+<li><strong>Departamento:</strong> aquí están los departamentos incluidos en este proyecto, RAAS, Matagalpa, puede hacer la consulta incluyendo ambos departamentos con la opcion por defecto que es <strong>“Todos los Departamento”</strong>, o escoger cualquier de los que estan disponibles en la lista.</li>
+<br>
+<li><strong>Municipio:</strong> En caso de haber seleccionado un departamento en  el filtro anterior, existe la opcion de seleccionar un municipio de la lista disponible, cabe mencionar que los municipios disponibles en esta lista dependerán del departamento seleccionado.</li>
+<br>
+<li><strong>Comunidad:</strong> En caso de haber seleccionado un municipio en  el  filtro anterior, existe la opcion de seleccionar una comunidad  de la lista disponible, cabe mencionar que los comunidades  disponibles en esta lista dependerán del municipio seleccionado.</li>
+<br>
+<li><strong>Propietario:</strong> La opción propietario es opcional pero funciona de igual manera que los demas. Este filtro puede ser usado combinado con cualquiera de los otros.</li>
+</ul>
+</p>
+<p><strong>Búsqueda especifica :</strong> Aqui tenemos los siguientes filtros.</p><center><img src="/media/imagen/cuadro2.png"></center><br>
+<ul>
+<li> <strong>Fecha:</strong> Se debe seleccionar  la fecha que se levanto la encuesta, como valor predeterminado aparece 2009.</li>
+<li> <strong>Productor:</strong> aqui debemos digitar el nombre del productor que deceamos saber su información.</li>
+</ul>
+<br>
+<p>2. Para activar tanto el filtro general como especifico, se debe darle clic al botón “Activar filtro” una ves hecho esto nos saldrá un mensaje parecido a esto:</p><center><img src="/media/imagen/cuadro3.png"></center><br>
+<p>En este momento podemos escoger cualquiera de la opciones que muestra el menu lateral derecho. 
+De forma opcional tambien se puede seleccionar el menu “tablas” del menu superior del sitio y tambien el menu “gráficos” para visualizar otras opciones de salidas.</p><center><img src="/media/imagen/cuadro5.png"></center><br> 
+<p>3. Si queremos hacer una nueva consulta debemos de hacer clic en el “Inicio” del menu superior y volver a escoger los filtros que se deseean</p><center><img src="/media/imagen/cuadro4.png"></center><br> 
+<p>cualquier consulta o sugerencia <a href="http://www.simas.org.ni/contactenos.php" target="blank">Pinche aqui</a></p>
+
+{% endblock %}

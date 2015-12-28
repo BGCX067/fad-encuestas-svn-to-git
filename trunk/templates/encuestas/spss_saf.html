@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss para SAF {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de SAF</caption>
+<tr>
+    <th>Comunidad</th>
+    <th>Nombre productor</th>
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- para la segunda opcion inline -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- tercera -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- cuarta -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- quinta -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- sexta -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- septima -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- octava -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- novena -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- decima -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- onceava -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- doceava -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    <!-- treceavo -->
+    <th>Sistema agroforestal</th>
+    <th>Area en desarrollo</th>
+    <th>Area en produccion</th>
+    <th>Area mal manejo</th>
+    <th>Area manejo regular</th>
+    <th>Area buen manejo</th>
+    
+    
+</tr>
+		{% for fila in data %}
+		<tr>
+			{% for cosito in fila %}
+				<td>{{ cosito }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

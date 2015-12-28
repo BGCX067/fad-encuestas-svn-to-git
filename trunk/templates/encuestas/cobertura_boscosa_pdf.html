@@ -1,0 +1,49 @@
+{% extends "pdf-base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+		{% block content %}
+                    <h1>Indicador: Cobertura Boscosa</h1>
+                    <ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+                    <br/>
+                    Numeros de encuestas: {{ total }}
+                    <div id="descargar" class="der"> <a href="/cobertura-boscosa.pdf"><img src="/media/imagen/pdf.png"></a><a href="/cobertura-boscosa.xls"><img src="/media/imagen/excell.png"></a></div> 
+                    <table border=1>
+                     <caption>Tabla de cobertura boscosa</caption>
+                      <thead>
+                        <tr>
+                            <th>
+                               Uso de tierra
+                            </th>
+                            <th>
+                               # 
+                            </th>
+                            <th>
+                                %
+                            </th>
+                            <th>
+                                Manzanas Totales
+                            </th>
+                            <th>
+                                % Área
+                            </th>
+                        </tr>
+                        </thead>
+			{%for item in data%}
+			<tr>
+		            {% for cosito in item%}
+                            <td>
+                                {{cosito}}
+                            </td>
+			     {%endfor%}                           
+                        </tr>
+			{%endfor%}
+<tr>
+                <td colspan=4>
+                    % Cobertura Boscosa
+                </td>
+                <td>
+                    {{cobertura_boscosa}}
+                </td>
+            </tr>
+
+        </table>     
+        {% endblock %}

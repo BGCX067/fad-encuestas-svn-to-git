@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{%block extraheader%}
+<link rel="stylesheet" href="/media/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/media/js/prototype.js"></script>
+<script type="text/javascript" src="/media/js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="/media/js/lightbox.js"></script>
+{%endblock%}
+{% block content %}
+<style type="text/css">
+	#largo {
+	position: relative;
+    padding: 0.5em;
+    background: #e3e3e3;
+    border: 1px solid #BFBFBF;
+	width: 115px;
+	}
+
+</style>
+<h1>Indicador: Datos Generales de las Fincas  </h1>
+<ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+<br>
+Números de encuestas: {{ total_fincas }}
+<div id="descargar" class="der"> <a href="/finca.pdf" ><img src="/media/imagen/pdf.png" title="Descargar pdf" class="vtip"></a><a href="/finca.xls" ><img src="/media/imagen/excell.png" title="Descargar Hoja de calculo" class="vtip"></a> {% if  request.user.is_authenticated %}<a href="/descargar/xls" ><img src="/media/imagen/Excel.png" title="Descargar Hoja de calculo SPSS" class="vtip"></a>{%endif%}</div> 
+<table>
+<caption>Tabla áreas mz</caption>
+<thead>
+         <tr>
+				<th>Area de Finca(Mz)</th>
+                 <th>Frecuencia de Finca</th>
+                 <th>Porcentajes (%)</th>
+         </tr>
+   </thead>
+   <tr>
+				<td>No tiene tierra</td>
+                 <td>{{ cero }}</td>
+                 <td>{{ por_cero|floatformat:0 }}</td>
+</tr>
+<tr>
+				<td>0.1 - 05 Mz</td>
+                 <td>{{ cinco }}</td>
+                 <td>{{ por_cinco|floatformat:0 }}</td>
+</tr>
+<tr>
+				<td>06 - 20 Mz</td>
+                 <td>{{ veinte }}</td>
+                 <td>{{ por_veinte|floatformat:0 }}</td>
+</tr>
+<tr>
+				<td>21 - 50 Mz</td>
+                 <td>{{ cincuenta }}</td>
+                 <td>{{ por_cincuenta|floatformat:0 }}</td>
+</tr>
+<tr>
+				<td> > 51 Mz</td>
+                 <td>{{ mayor }}</td>
+                 <td>{{ por_mayor|floatformat:0 }}</td>
+</tr>
+</table>
+
+<table>
+<caption>Tabla animales</caption>
+<thead>
+         <tr>
+				<th>Animales</th>
+                 <th>Frecuencia Finca</th>
+                 <th>Porcentajes (%)</th>
+				 <th>Total Animales</th>
+				 <th>Promedio</th>
+         </tr>
+   </thead>
+<tr>
+				<td>Bovino</td>
+                 <td>{{ bovino }}</td>
+                 <td>{{ por_bovino|floatformat:0 }}</td>
+				 <td>{{ sum_bovino.finca__animal_bovino__sum|floatformat:0 }}</td>
+				 <td>{{ pro_bovino.finca__animal_bovino__avg|floatformat:0  }}</td>
+</tr>
+<tr>
+				<td>Porcino</td>
+                 <td>{{ porcino }}</td>
+                 <td>{{ por_porcino|floatformat:0 }}</td>
+				 <td>{{ sum_porcino.finca__animal_porcino__sum|floatformat:0  }}</td>
+				 <td>{{ pro_porcino.finca__animal_porcino__avg|floatformat:0  }}</td>
+</tr>
+<tr>
+				<td>Equino</td>
+                 <td>{{ equino }}</td>
+                 <td>{{ por_equino|floatformat:0 }}</td>
+				 <td>{{ sum_equino.finca__animal_equino__sum|floatformat:0  }}</td>
+				 <td>{{ pro_equino.finca__animal_equino__avg|floatformat:0  }}</td>
+</tr>
+<tr>
+				<td>Aves</td>
+                 <td>{{ aves }}</td>
+                 <td>{{ por_aves|floatformat:0 }}</td>
+				 <td>{{ sum_aves.finca__animal_aves__sum|floatformat:0  }}</td>
+				 <td>{{ pro_aves.finca__animal_aves__avg|floatformat:0  }}</td>
+</tr>
+<tr>
+				<td>Caprino</td>
+                 <td>{{ caprino }}</td>
+                 <td>{{ por_caprino|floatformat:0 }}</td>
+				 <td>{{ sum_caprino.finca__animal_caprino__sum|floatformat:0 }}</td>
+				 <td>{{ pro_caprino.finca__animal_caprino__avg|floatformat:0  }}</td>
+</tr>
+</table>
+
+{%if fotos%}
+<h1>Fotos</h1>
+{%for foto in fotos%}
+<a href="/media{{foto.adjunto.url}}" title="{{foto.nombre}}" rel="lightbox[Brussels]"><img id="largo" src="/media{{foto.adjunto.url_125x125}}" /></a>
+{%endfor%}
+{%endif%}
+{%  endblock %}

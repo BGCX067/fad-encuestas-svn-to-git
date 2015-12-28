@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Indicador: Fuentes de Ingreso de las Familias</h1>
+<ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+<br>
+Números de encuestas: {{ casos }}
+
+<table>
+<caption>Tabla Tomas de Decisiones</caption>
+<thead>
+         <tr>
+				 <th></th>
+                 <th>Personas(#)</th>
+                 <th>Participación(#)</th>
+                 <th>Participación(%)</th>
+                 <th>Organizacion(Fadcanic)(#)</th>
+         </tr>
+   </thead>
+<tr>
+				<td>Jovenes(15-24 años)de la Familia</td>
+				<td>{{ total_jovenes }}</td>
+                 <td>{{ jovenes_t }}</td>
+                 <td>{{ jovenes_p|floatformat:2 }}%</td>
+                 <td>{{ orga_jovenes }}</td>
+</tr>
+<tr>
+				<td>Mujeres(25+) de la Familia</td>
+				 <td>{{ total_m_adulta }}</td>
+                 <td>{{ mujeres_t }}</td>
+                 <td>{{ mujeres_p|floatformat:2 }}%</td>
+                 <td>{{ orga_mujeres }}</td>
+</tr>
+<!--<tr>-->
+<!--				<td>Total</td>-->
+<!--                 <td>{{ total_t }}</td>-->
+<!--                 <td>{{ total_p|floatformat:2 }}%</td>-->
+<!--                 <td>?</td>-->
+<!--                 <td>{{ total_orga }}</td>-->
+<!--</tr>-->
+</table>
+
+{% endblock %}

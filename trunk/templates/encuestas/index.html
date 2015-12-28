@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+{% block extraheader %}
+<link rel="stylesheet" href="/media/css/jquery.autocomplete.css" />
+<script type="text/javascript" src="/media/js/jquery.autocomplete.min.js"></script>
+<script>
+    jQuery.noConflict();
+    jQuery(document).ready(function() {
+        jQuery('#id_productor').autocomplete('/ajax/productor');
+        jQuery('#especifica_form').hide();
+        jQuery('#mensaje').show();
+        var departamento = document.getElementById("id_departamento");
+        var municipio = document.getElementById("id_municipio");
+        var comunidad= document.getElementById("id_comunidad");
+        var propietario = document.getElementById("id_propietario")
+        var tipo_busqueda= document.getElementById("id_tipo_busqueda");
+        jQuery("#id_departamento").change(function () {
+            var index = departamento.options.selectedIndex;
+            var id = departamento.options[index].value;
+            jQuery.getJSON("ajax/municipio/" + id +"/",
+            function(data){
+                municipio.options.length = 0;
+                comunidad.options.length = 0;
+                municipio.options[0] = new Option("--------");
+                for(i=0; i< data.length; i++){
+                    municipio.options[i+1] = new Option(data[i][1], data[i][0]);
+                }
+            });
+        });
+        jQuery("#id_municipio").change(function () {
+            var index = municipio.options.selectedIndex;
+            var id = municipio.options[index].value;
+            jQuery.getJSON("ajax/comunidad/" + id +"/",
+            function(data){
+                comunidad.options.length = 0;
+                comunidad.options[0] = new Option("---------");
+                for(i=0; i< data.length; i++){
+                    comunidad.options[i+1] = new Option(data[i][1], data[i][0]);
+                }
+            });
+        });
+        jQuery("#general").click(function (){
+            //mostrar los elementos generales (departamento, municipio, comunidad)
+            jQuery('#general_form').show();
+            jQuery('#especifica_form').hide();
+
+            tipo_busqueda.value='general';
+        });
+        jQuery("#especifica").click(function (){
+            //mostrar los elementos especificos(productor pues
+            jQuery('#especifica_form').show();
+
+            jQuery('#general_form').hide();
+            tipo_busqueda.value='especifica';
+        });
+        jQuery("#boton").click(function (){
+            //mostrar los elementos especificos(productor pues
+            jQuery('#mensaje').show();
+        });
+    });
+</script>
+{% endblock %}
+
+		{% block content %}
+
+<div id="tab" class="izq"> 
+	<div id ="general" class="tab"><h3  class="tabtxt"><a href="#">Búsqueda general</a></h3></div>
+	{% if user.is_authenticated %}
+	<div  id ="especifica" class="tab"><h3 class="tabtxt"><a href="#">Búsqueda específica</a></h3></div>
+	{% endif %}
+ <div id="formulario">
+                    <form action"." method="POST">
+                    <fieldset>
+
+                    <div id="formulario_tabla">
+                           <div class="form_label"><b>{{form.fecha.label}}</b></div>
+                           <div class="form_widget">{{form.fecha}}</div>
+                           <div id="general_form">
+                              <div class="form_label"><b>{{form.departamento.label}}</b></div>
+                              <div class="form_widget">{{form.departamento}}</div>
+                              <div class="form_label"><b>{{form.municipio.label}}</b></div>
+                              <div class="form_widget">{{form.municipio}}</div>
+                              <div class="form_label"><b>{{form.comunidad.label}}</b></div>
+                              <div class="form_widget">{{form.comunidad}}</div>
+                              <div class="form_label"><b>{{form.propietario.label}}</b></div>
+                              <div class="form_widget">{{form.propietario}}</div>
+                              <div class="form_label"><b>{{form.repetido.label}}</b></div>
+                              <div class="form_widget">{{form.repetido}}</div>
+                           </div>
+                           <div id="especifica_form">
+                              <div class="form_label"><b>{{form.productor.label}}</b></div>
+                              <div class="form_widget">{{form.productor|safe}}</div>
+                           </div>
+                           <div class="form_widget">{{form.tipo_busqueda}}</div>
+                    </div>
+
+                      <input type="submit" value="" id="boton" class="filtro"/>
+                    </fieldset>
+                    </form>
+                    <br>
+    </div>
+</div>
+              <div id="formulario_ayuda" class="der">
+               <h3>Filtro Principal</h3>
+               <div id="contenido_ayuda">
+{%if mensaje%}
+                    <div id="mensaje">{{mensaje}}</div>
+{%endif%}
+<p>Los datos de indicadores pueden filtrarse de acuerdo a la ubicación geográfica en 
+ tres niveles.</p><p> Seleccione el año y nivel que se desea para posteriormente visualizar los resultados para cualquiera de los indicadores del panel derecho.</p>
+               </div>
+              </div>
+<div id="separador"></div>
+<div id="filtros_index"><b>Filtros Seleccionados</b>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</div>
+
+
+<h1>Descripción del Sistema</h1>
+<p>El sistema de información de agroforesteria fue desarrollado a partir de la linea de base del proyecto de agroforesteria y beneficiarios de ADDAC y FADCANIC, destacando información de los diferentes componentes productivos </p>
+        {% endblock %}

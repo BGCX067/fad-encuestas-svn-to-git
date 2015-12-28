@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Jóvenes en poder{% endblock %}
+{% block extraheader %}
+{% endblock %}
+		{% block content %}
+                    <h1>Indicador 9: Jóvenes en Poder</h1>
+                    <ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+                    <br>
+                    <h2> Números de casos: {{total}} </h2>
+                    <div id="descargar" class="der"> <a href="/jovenes-poder.pdf"><img src="/media/imagen/pdf.png" title="Descargar pdf" class="vtip"></a><a href="/jovenes-poder.xls"><img src="/media/imagen/excell.png" title="Descargar Hoja de calculo" class="vtip"></a></div>
+                    <table>
+                        <tr>
+                            <td colspan=3>
+                               Número de jóvenes en estructura de poder 
+                       </td>
+                   </tr>
+                       <tr>
+                           <td>
+                               Varones
+                               </td>
+                               <td>
+                                   {{suma_varones}}
+                                   </td>
+                                   <td>
+                                    {{porcentaje_varones}} %
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mujeres
+                                </td>
+                                <td>
+                                    {{suma_mujeres}}
+                                </td>
+                                <td> 
+                                    {{porcentaje_mujeres}} %
+                                </td>
+                            </tr>
+                        </table>     
+        {% endblock %}

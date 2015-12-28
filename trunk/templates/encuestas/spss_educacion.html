@@ -1,0 +1,111 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss para Educacion {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de la Educacion</caption>
+<tr>
+    <th>Comunidad</th>
+    <th>Nombre productor</th>
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- para la segunda opcion inline -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- tercera -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- cuarta -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- quinta -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- sexta -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- septima -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+    <!-- octava -->
+    <th>sexo edad</th>
+    <th>Numero de persona</th>
+    <th>No sabe leer</th>
+    <th>Primaria incompleta</th>
+    <th>Primaria completa</th>
+    <th>Secundaria incompleta</th>
+    <th>Secundaria completa</th>
+    <th>Uni o tecnico</th>
+    <th>Estudiando</th>
+    <th>Circulo de estudio</th>
+</tr>
+		{% for fila in data %}
+		<tr>
+			{% for cosito in fila %}
+				<td>{{ cosito }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

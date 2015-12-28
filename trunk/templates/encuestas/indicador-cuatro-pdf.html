@@ -1,0 +1,125 @@
+{% extends 'pdf-base.html' %}
+{% block content %}
+{% load smart_if %}
+<h1> Indicador: Producción, comercialización y precio </h1>
+<br>
+Numeros de encuestas: {{ casos }}
+<table border=1>
+<caption>Tabla Producción, comercialización y precio</caption>
+<thead>
+         <tr>
+				 <th>Productos</th>
+                 <th>Casos</th>
+                 <th>Area Cosechada (Mz)</th>
+                 <th>Produccion total</th>
+				 <th>Unidad</th>
+				 <th>Auto Consumo</th>
+				 <th>Venta no Org.</th>
+				 <th>Venta Org.</th>
+         </tr>
+   </thead>
+<tbody>
+{% for i in producto %}
+<tr>
+			<td>{{ i.nombre }}</td>
+			<td>{{ i.count|floatformat:2 }}</td>
+			<td>{{ i.agro|floatformat:2 }}</td>
+			<td>{{ i.anual|floatformat:2 }}</td>
+{% if i.nombre == "Cafe"%}
+	<td>qq pergaminos</td>
+{% endif %}
+{% if i.nombre == "Cacao"%}
+	<td>qq</td>
+{% endif %}
+{% if i.nombre == "Lena"%}
+	<td>Carga</td>
+{% endif %}
+{% if i.nombre == "Coco" or i.nombre == "Guanabana" or i.nombre == "Guabo" or i.nombre == "Mamon chino" or i.nombre == "Fruta de pan" or i.nombre == "Castano" or i.nombre == "Pina" %}
+	<td>Unidad</td>
+{% endif %}
+{% if i.nombre == "Platano" or i.nombre == "Naranja" or i.nombre == "Naranjilla" or i.nombre == "Mandarina" or i.nombre == "Limon" %}
+	<td>Cienes</td>
+{% endif %}
+{% if i.nombre == "Achiote" or i.nombre == "Canela" or i.nombre == "Crema" %}
+	<td>Libras</td>
+{% endif %}
+{% if i.nombre == "Guineo"%}
+	<td>Cabezas</td>
+{% endif %}
+{% if i.nombre == "Madera"%}
+	<td>Pie tablar</td>
+{% endif %}
+{% if i.nombre == "Pejibaye"%}
+	<td>Racimo</td>
+{% endif %}
+{% if i.nombre == "Aguacate"%}
+	<td>Docenas</td>
+{% endif %}
+			<td>{{ i.consumo|floatformat:2 }}</td>
+			<td>{{ i.no|floatformat:2 }}</td>
+			<td>{{ i.si|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h1>Ventas e Ingresos</h1>
+<table border=1>
+<caption>Tabla Producción, comercialización y precio</caption>
+<thead>
+         <tr>
+				 <th>Productos</th>
+                 <th>Unidad</th>
+                 <th>Venta no Orga.</th>
+                 <th>Precio Promedio</th>
+				 <th>Ingreso V. No org.</th>
+				 <th>Venta Orga.</th>
+				 <th>Precio Promedio.</th>
+				 <th>Ingreso V. Orga.</th>
+         </tr>
+   </thead>
+<tbody>
+{% for a in producto %}
+<tr>
+	<td>{{ a.nombre }}</td>
+{% if a.nombre == "Cafe"%}
+	<td>qq pergaminos</td>
+{% endif %}
+{% if a.nombre == "Cacao"%}
+	<td>qq</td>
+{% endif %}
+{% if a.nombre == "Lena"%}
+	<td>Carga</td>
+{% endif %}
+{% if a.nombre == "Coco" or a.nombre == "Guanabana" or a.nombre == "Guabo" or a.nombre == "Mamon chino" or a.nombre == "Fruta de pan" or a.nombre == "Castano" or a.nombre == "Pina" %}
+	<td>Unidad</td>
+{% endif %}
+{% if a.nombre == "Platano" or a.nombre == "Naranja" or a.nombre == "Naranjilla" or a.nombre == "Mandarina" or a.nombre == "Limon" %}
+	<td>Cienes</td>
+{% endif %}
+{% if a.nombre == "Achiote" or a.nombre == "Canela" or a.nombre == "Crema" %}
+	<td>Libras</td>
+{% endif %}
+{% if a.nombre == "Guineo"%}
+	<td>Cabezas</td>
+{% endif %}
+{% if a.nombre == "Madera"%}
+	<td>Pie tablar</td>
+{% endif %}
+{% if a.nombre == "Pejibaye"%}
+	<td>Racimo</td>
+{% endif %}
+{% if a.nombre == "Aguacate"%}
+	<td>Docenas</td>
+{% endif %}
+	<td>{{ a.no|floatformat:2 }}</td>
+	<td>{{ a.preciono|floatformat:2  }}</td>
+	<td>{{ a.ingreso_no_org|floatformat:2  }}</td>
+	<td>{{ a.si|floatformat:2 }}</td>
+	<td>{{ a.preciosi|floatformat:2  }}</td>
+	<td>{{ a.ingreso_org|floatformat:2  }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

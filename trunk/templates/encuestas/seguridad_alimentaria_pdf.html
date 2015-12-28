@@ -1,0 +1,43 @@
+{% extends "pdf-base.html" %}
+		{% block content %}
+                    <h1>Indicador: Seguridad Alimentaria</h1>
+<br>
+                    Numero de encuestas: {{ encuestas }}
+                    <table border=1>
+                    <caption>Tabla de Seguridad Alimentaria</caption>
+                    <thead>
+                        <tr>
+                            <th>
+                               Alimentos 
+                            </th>
+                            <th>
+                                Producen
+                            </th>
+                            <th>
+                                %
+                            </th>
+                            <th>
+                                Comprar
+                            </th>
+                            <th>
+                                %
+                            </th>
+                            <th>
+                                Nivel suficiente de consumo
+                            </th>
+                            <th>
+                                %
+                            </th>
+                        </tr>
+             </thead>
+			{%for item in data%}
+			<tr>
+		            {% for cosito in item%}
+                            <td>
+                                {{cosito}}
+                            </td>
+			     {%endfor%}                           
+                        </tr>
+			{%endfor%}
+        </table>     
+        {% endblock %}

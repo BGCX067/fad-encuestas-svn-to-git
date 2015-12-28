@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+
+import os 
+
+SITE_URL = 'localhost'
+SITE_ROOT= os.path.dirname(__file__)
+ADMINS = (('Carlos', 'carlos@simas.org.ni'),)
+EMAIL_HOST = 'localhost'
+DEFAULT_FROM_EMAIL = 'carlos@simas.org.ni'
+DATABASE_NAME = 'fadcanic'          
+DATABASE_USER = 'userdb'           
+DATABASE_PASSWORD = 'passdb'       
+DATABASE_HOST = ''           
+DATABASE_PORT = ''       
+TIME_ZONE = 'America/Managua'
+LANGUAGE_CODE = 'es-ni'
+MEDIA_URL = 'http://localhost/'
+SECRET_KEY = '2xj(%4-tl5vgcp$^&nc^+udi#)pd^i$&%$yodbak*(r&2+t0k%'

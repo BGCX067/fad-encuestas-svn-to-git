@@ -1,0 +1,133 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss para Producción y Comercialización {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de Producción y Comercialización</caption>
+<tr>
+    <th>Comunidad</th>
+    <th>Nombre productor</th>
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- para la segunda opcion inline -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>   
+    <!-- tercera -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- cuarta -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- quinta -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- sexta -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- septima -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- octava -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- novena -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- deceima -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+    <!-- onceavo -->
+    <th>Productos agroforestales</th>
+    <th>Area cosechada en MZ</th>
+    <th>Produccion total anual</th>
+    <th>Unidad medida</th>
+    <th>Auto consumo</th>
+    <th>Cantidad venta no organizada</th>
+    <th>Precio venta no organizada</th>
+    <th>Cantidad venta organizada</th>
+    <th>Precio venta organizada</th>
+</tr>
+		{% for fila in data %}
+		<tr>
+			{% for cosito in fila %}
+				<td>{{ cosito }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

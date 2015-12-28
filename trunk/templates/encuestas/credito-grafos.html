@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+{% block extraheader %}
+ <script>
+jQuery.noConflict();
+jQuery(document).ready(function(){
+jQuery("#boton-grafo-credito").click(function () { 
+     jQuery.getJSON("/credito/credito",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+ });         
+jQuery("#boton-grafo-uso").click(function () { 
+     jQuery.getJSON("/credito/uso",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+ });
+});
+</script>
+
+{% endblock %}
+        {% block content %}
+            <h1>Gráficos</h1>
+            <ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+<p>Números de encuestas: {{ casos }}</p>
+<br></br>
+ <ul id="menu_grafos">
+            <li><div id="boton-grafo-credito"><a href="#"title="Ver grafico Organización que tiene crédito" class="vtip">Créditos</a></div></li>
+            <li><div id="boton-grafo-uso"><a href="#" title="Ver grafico Uso del crédito" class="vtip">Uso del crédito</a></div></li>
+</ul><br><br>
+            <div id="grafo"></div>
+{%endblock%}

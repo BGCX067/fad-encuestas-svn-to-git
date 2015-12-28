@@ -1,0 +1,53 @@
+{% extends "pdf-base.html" %}
+
+		{% block content %}
+                    <h1>Indicador: Educación</h1>
+                    <br>
+                    Numeros de encuestas: {{ encuestas }}
+                    <table border=1>
+                   <caption>Tabla de Educación</caption>
+                    <thead>
+                        <tr>
+                            <th>
+                               
+                            </th>
+                            <th>
+                                #Total
+                            </th>
+                            <th>
+                                % No Sabe Leer
+                            </th>
+                            <th>
+                                % Prim Incompleta
+                            </th>
+                            <th>
+                                % Prim Completa
+                            </th>
+                            <th>
+                                % Secun Incompleta
+                            </th>
+                            <th>
+                                % Secun Completa
+                            </th>
+                            <th>
+                                % Univ. o Tecnico 
+                            </th>
+                            <th>
+                                % Estudi.
+                            </th>
+                            <th>
+                                % Cir. de Estudio
+                            </th>
+                        </tr>
+                    </thead>
+			{% for item in data %}
+			<tr>
+		            {% for cosito in item %}
+                            <td>
+                                {{ cosito }}
+                            </td>
+			     {% endfor %}                           
+                        </tr>
+			{%endfor%}
+        </table>     
+        {% endblock %}

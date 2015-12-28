@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+{% block extraheader %}
+ <script>
+jQuery.noConflict();
+/*function remplazarGrafo(data){
+    jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+}*/
+jQuery(document).ready(function(){
+jQuery("#boton-grafo-agua").click(function () { 
+    jQuery.getJSON("/grafos/fuente-de-agua", 
+           function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+        });
+    });          
+jQuery("#boton-grafo-propiedad").click(function () { 
+    jQuery.getJSON("/grafos/dueno-propiedad", 
+        function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+ });          
+jQuery("#boton-grafo-legalidad").click(function () { 
+    jQuery.getJSON("/grafos/legalidad-propiedad",
+        function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+        });
+jQuery("#boton-grafo-vendio").click(function () { 
+     jQuery.getJSON("/grafos/aquien-vendio",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+ });
+
+jQuery("#boton-grafo-casa").click(function () { 
+     jQuery.getJSON("/grafos/tipo-de-casa",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo"><img src="' + data.url + '" /></div>');
+            });
+ });
+jQuery("#boton-grafo-negocio").click(function () { 
+     jQuery.getJSON("/grafos/maneja-negocio",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo""><img src="' + data.url + '" /></div>');
+            });
+ });
+jQuery("#boton-grafo-decision").click(function () { 
+     jQuery.getJSON("/grafos/toma-decision",
+            function(data){
+                jQuery("#grafo").replaceWith('<div id="grafo""><img src="' + data.url + '" /></div>');
+            });
+ });
+});
+</script>
+
+{% endblock %}
+        {% block content %}
+            <h1>Gráficos</h1>
+            <ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+            <p> Números de casos: {{encuestas}} </p>
+ <ul id="menu_grafos">
+
+            <li><div id="boton-grafo-casa"><a href="#" title="Ver grafico tipo de casa" class="vtip">Tipo de Casa</a></div></li>
+
+            <li><div id="boton-grafo-agua"><a href="#" title="Ver grafico fuentes de agua" class="vtip">Fuente de Agua</a></div></li>
+            <li><div id="boton-grafo-propiedad"><a href="#" title="Ver grafico Dueño de la propiedad" class="vtip">Dueños</a></div></li>
+            <li><div id="boton-grafo-legalidad"><a href="#" title="Ver grafico legalidad de propiedad" class="vtip">Legalidad</a></div></li>
+            <li><div id="boton-grafo-vendio"><a href="#" title="Ver grafico A quien vendio" class="vtip">A quien Vendio</a></div></li>
+            <li><div id="boton-grafo-negocio"><a href="#" title="Ver grafico Quien maneja el negocio" class="vtip">Maneja Negocio</a></div></li>
+            <li><div id="boton-grafo-decision"><a href="#" title="Ver grafico Tomas de decision" class="vtip">Toma Decision</a></div></li>
+            
+</ul>
+<br><br>
+            <div id="grafo"></div>
+            
+            
+{%endblock%}

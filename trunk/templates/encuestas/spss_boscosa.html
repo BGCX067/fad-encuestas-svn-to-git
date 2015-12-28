@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss para Cobertura Boscosa {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de Cobertura Boscosa</caption>
+<tr>
+    <th>Nombre productor</th>
+    <th>Comunidad</th>
+    <th>Bosque primario</th>
+    <th>Bosques secundario</th>
+    <th>Bosque de galeria</th>
+    <th>Humedales</th>
+    <th>Tacotal</th>
+    <th>Cultivos perennes</th>
+    <th>Cultivos semiperennes</th>
+    <th>Cultivos anuales</th>
+    <th>Huerto mixto</th>
+    <th>Potrero abierto</th>
+    <th>Potrero arboles</th>
+    <th>Cerca viva</th>
+    <th>Cerca muerta</th>
+    <th>Plantaciones forestales</th>
+    <th>Parcelas enegeticas</th>
+</tr>
+		{% for fila in datos %}
+		<tr>
+			{% for cosito in fila %}
+				<td>{{ cosito }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

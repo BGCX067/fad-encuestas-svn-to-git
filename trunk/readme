@@ -1,0 +1,55 @@
+En el view de seguridad alimentaria debería de incluirse en la tabla el nivel de consumo
+cuando este no es suficiente tambien para hacerla mas significativa.
+
+En el view de sistema agroforestal el calculo del porcentaje final para los manejos
+debería de cambiarse de otra manera para que si pueda sumar 100% actualmente hay un
+margen de error por que los datos introducidos tienen error y debería de calcularse 
+con la suma de los tres manejos(malo, regular, bueno) y no con la suma del total
+de las manzanas disponibles
+
+***************************
+ Listo - A la base de datos en produccion hay que hacer el update al año 2009 y eliminar un matagalpa
+
+*************************** 
+////////Actualizar este archivo en cada tarea cuando este lista poniendole "listo" al comienzo
+
+Listo(Fitoria)-Cambiar numero de casos por lo que realmente significa en todos los indicadores. (fitoria y carlos los que le tocaron a cada quien)
+Listo -Agregar al admin todo tipo de filtros que faciliten la  busqueda(Carlos)
+Listo -En el indicador seguridad alimentaria agregar los 5 productos que hacen falta(fitoria)
+Listo - Componer los numeros en los graficos que sean los porcentajes(carlos y fitoria)
+Listo -Verificar las encuestas que den datos raros entre los indicadores que don falguni dijo produccion e ingreso(carlos)
+#listo -Crear menus para tablas de indicadores y grafos independientes(byron)
+#listo-Asignarle tamano y css a las tablas (byron)
+listo-Poner el formulario bonito(byron)
+listo-Definir paletas de colores para los grafos(byron)
+Listo -Validar template para IE ... Fuck!!! (byron) - LOL
+listo -Poner las variables de sesion que esten usadas en algun lugar(byron)
+listo -Componer footer , hacerlo mas pequeno, quitar el logo de simas y poner logo de noruega (byron)
+Listo -Cambiar en la tabla encuestas_produccomerprecio el tipo de campo de varchar a int el campo a cambiar es "unidad_medida"
+Listo -Correr esto en mysql:ALTER TABLE encuestas_produccomerprecio CHANGE unidad_medida unidad_medida int(11);
+corre esto en mysql:
+ALTER TABLE encuestas_finca CHANGE propietario propietario varchar(50);
+UPDATE encuestas_finca SET propietario = 'parientes' WHERE propietario = 4;
+UPDATE encuestas_finca SET propietario = 'ambos' WHERE propietario = 3;
+UPDATE encuestas_finca SET propietario = 'mujer' WHERE propietario = 2;
+UPDATE encuestas_finca SET propietario = 'hombre' WHERE propietario = 1;
+
+otro mas :  ALTER TABLE encuestas_ingreso CHANGE quien_maneja_negocio quien_maneja_negocio varchar(50);
+UPDATE encuestas_ingreso SET quien_maneja_negocio = 'parientes' WHERE quien_maneja_negocio = 4;
+UPDATE encuestas_ingreso SET quien_maneja_negocio = 'ambos' WHERE quien_maneja_negocio = 3;
+UPDATE encuestas_ingreso SET quien_maneja_negocio = 'mujer' WHERE quien_maneja_negocio = 2;
+UPDATE encuestas_ingreso SET quien_maneja_negocio = 'hombre' WHERE quien_maneja_negocio = 1;
+
+
+Actualizaciones del ultimo acuerdo:
+- cambiar coodenadas_gps a decimal field
+ALTER TABLE encuestas_finca CHANGE coordenadas_gps coordenadas_gps decimal(24,16)
+ha este campo cambiar el text_help a coordenadas latitud
+- crear un nuevo campo llamado coordenadas_lg que sea decimal field y que tenga como help_text coordenadas longitud
+ALTER TABLE encuestas_finca ADD COLUMN coordenadas_lg decimal(24,16)
+- crear nuevo campo sexo del tipo Integer
+ALTER TABLE encuestas_finca ADD COLUMN sexo int(11)
+
+
+
+

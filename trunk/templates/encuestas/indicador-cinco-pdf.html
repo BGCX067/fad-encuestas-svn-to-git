@@ -1,0 +1,75 @@
+{% extends "pdf-base.html" %}
+{% load smart_if %}
+{% block content %}
+<h1> Indicador: Fuentes de Ingreso de las Familias</h1>
+<br>
+Numeros de encuestas: {{ casos }}
+
+<table border=1>
+<caption>Tabla Fuente de Ingreso</caption>
+<thead>
+         <tr>
+				 <th>Fuente de ingreso</th>
+                 <th>Unidad</th>
+                 <th>Frecuencia de casos</th>
+                 <th>Cantidad total</th>
+				 <th>Precio promedio</th>
+				 <th>Ingreso</th>
+				 <th>Porcentajes (%)</th>
+         </tr>
+   </thead>
+{% for i in producto %}
+<tr>
+<td>{{ i.nombre }}</td>
+{% if i.nombre == "Venta Maiz" or i.nombre == "Venta Frijol" or i.nombre == "Venta Yuca" or i.nombre == "Venta Malanga" or i.nombre == "Venta Quequisque" or i.nombre == "Venta de cacao" %}
+	<td>qq</td>
+{% endif %}
+{% if i.nombre == "Venta de cafe"%}
+	<td>qq pergaminos</td>
+{% endif %}
+{% if i.nombre == "Venta Arroz"%}
+	<td>qq granza</td>
+{% endif %}
+{% if i.nombre == "Venta Naranjilla" or i.nombre == "Venta platano" or i.nombre == "Venta Naranja" or i.nombre == "Venta mandarina" %}
+	<td>Cienes</td>
+{% endif %}
+{% if i.nombre == "Venta de Maracuya" or i.nombre == "Venta Granadilla" or i.nombre == "Venta aguacate" or i.nombre == "Venta de huevos" %}
+	<td>Docenas</td>
+{% endif %}
+{% if i.nombre == "Venta achiote" or i.nombre == "Venta cuajada" or i.nombre == "Venta queso" or i.nombre == "Venta de pescado" or i.nombre == "Venta de marisco" or i.nombre == "Venta Carne" or i.nombre == "Venta canela" %}
+	<td>Libras</td>
+{% endif %}
+{% if i.nombre == "Venta de coco" or i.nombre == "Venta de bovinos" or i.nombre == "Venta gallina" or i.nombre == "Venta de cerdo" or i.nombre == "Venta hortalizas" or i.nombre == "Venta pina" or i.nombre == "Venta guanabana" %}
+	<td>Unidad</td>
+{% endif %}
+{% if i.nombre == "Venta lena"%}
+	<td>Carga</td>
+{% endif %}
+{% if i.nombre == "Venta Guineo"%}
+	<td>Cabezas</td>
+{% endif %}
+{% if i.nombre == "Venta madera"%}
+	<td>Pie tablar</td>
+{% endif %}
+{% if i.nombre == "Venta pejibaye"%}
+	<td>Racimo</td>
+{% endif %}
+{% if i.nombre == "Venta leche"%}
+	<td>Litros</td>
+{% endif %}
+{% if i.nombre == "Servicio de Transporte" or i.nombre == "Venta de mano de obra" %}
+	<td>Dia</td>
+{% endif %}
+{% if i.nombre == "Ingreso por salario" or i.nombre == "Remesas" or i.nombre == "Ingreso por negocio" %}
+	<td>C$</td>
+{% endif %}
+<!--<td>{{ i.unidad }}</td>-->
+<td>{{ i.count }}</td>
+<td>{{ i.sum|floatformat:2 }}</td>
+<td>{{ i.avg|floatformat:2 }}</td>
+<td>{{ i.ingreso|floatformat:2 }}</td>
+<td>{{ i.porcentaje|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

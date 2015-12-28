@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load humanize %}
+<h1> Indicador: Fuentes de Ingreso de las Familias</h1>
+<ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+<br>
+Números de encuestas: {{ casos }}
+                    <div id="descargar" class="der"> <a href="/ingreso.pdf"><img src="/media/imagen/pdf.png" title="Descargar pdf" class="vtip"></a><a href="/ingreso.xls"><img src="/media/imagen/excell.png" title="Descargar Hoja de calculo" class="vtip"></a> {% if  request.user.is_authenticated %}<a href="/descargar/xls-ingreso"><img src="/media/imagen/Excel.png" title="Descargar Hoja de calculo para SPSS" class="vtip"></a>{%endif%}</div> 
+<table>
+<caption>Tabla Fuente de Ingreso</caption>
+<thead>
+         <tr>
+				 <th>Fuente de ingreso</th>
+                 <th>Unidad</th>
+                 <th>Frecuencia de casos</th>
+                 <th>Cantidad total</th>
+				 <th>Precio promedio</th>
+				 <th>Ingreso</th>
+				 <th>Porcentajes (%)</th>
+         </tr>
+   </thead>
+<tbody>
+{% for i in producto %}
+<tr>
+<td>{{ i.nombre }}</td>
+<td>{{ i.unidad }}</td>
+<td>{{ i.count }}</td>
+<td>{{ i.sum|floatformat:2 }}</td>
+<td>{{ i.avg|floatformat:2 }}</td>
+<td>{{ i.ingreso|floatformat:2 }}</td>
+<td>{{ i.porcentaje|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+</tbody>
+<tr><tfoot>
+	<td colspan=5>Ingreso Neto por Familia</td>
+	<td>{{ ingreso_neto|intcomma }}</td>
+</tr>
+</tfoot>
+<tr><tfoot>
+	<td colspan=5>Ingreso bruto Promedio por Familia</td>
+	<td>{{ ingreso_promedio|intcomma }}</td>
+</tr>
+</tfoot>
+
+<!--<tr><tfoot>
+	<td colspan=5>Total Ingreso Bruto</td>
+	<td>{{ ingreso_total_final|intcomma }}</td>
+</tr>
+</tfoot>-->
+
+</table>
+
+{% endblock %}

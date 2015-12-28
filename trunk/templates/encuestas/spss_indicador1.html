@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss para Datos Generales {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de los Datos generales</caption>
+<tr>
+    <th>Nombre finca</th>
+    <th>Comunidad</th>
+    <th>Nombre productor</th>
+    <th>sexo</th>
+    <th>Cedula productor</th>
+    <th>Area finca</th>
+    <th>Animal bovino</th>
+    <th>Animal porcino</th>
+    <th>Animal equino</th>
+    <th>Animal aves</th>
+    <th>Animal caprino</th>
+    <th>Tipo casa</th>
+    <th>Area casa</th>
+    <th>Fuente de agua</th>
+    <th>Legalidad</th>
+    <th>Propietario</th>
+</tr>
+		{% for fila in datos %}
+		<tr>
+			{% for generales in fila %}
+				<td>{{ generales }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

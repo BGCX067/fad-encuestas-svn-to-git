@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Hoja spss Ingreso Familiar {% endblock %}</title>
+</head>
+		{% block content %}
+<table border=1>
+	<caption>Tabla completa de Ingreso Familiar</caption>
+<tr>
+    <th>Comunidad</th>
+    <th>Nombre productor</th>
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- para la segunda opcion inline -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- tercera -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- cuarta -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- quinta -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- sexta -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- septima -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- octava -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- noveno -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- decimo -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- once -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- doce -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- trece -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- catorce -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    <!-- quince -->
+    <th>Fuente de ingreso</th>
+    <th>Unidad</th>
+    <th>Cantidad vendida</th>
+    <th>Precio de venta</th>
+    <th>Ingreso por venta</th>
+    <th>A quien vendio</th>
+    <th>Quien maneja el negocio</th>
+    
+</tr>
+		{% for fila in data %}
+		<tr>
+			{% for cosito in fila %}
+				<td>{{ cosito }} </td>
+            {% endfor %}
+		</tr>
+		{% endfor %}
+</table>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Sistema ADDAC-FADCANIC{% endblock %}
+{% block extraheader %}
+{% endblock %}
+		{% block content %}
+                    <h1>Indicador: Seguridad Alimentaria</h1>
+					<ul class="mensaje"><strong>Departamento: {{ request.session.departamento.nombre }} | Municipio: {{request.session.municipio.nombre}} | Comunidad:{{request.session.comunidad.nombre}}</strong></ul>
+<br/>
+                    Números de encuestas: {{ encuestas }}
+                    <div id="descargar" class="der"> <a href="/seguridad-alimentaria.pdf"><img src="/media/imagen/pdf.png" title="Descargar pdf" class="vtip"></a><a href="/seguridad-alimentaria.xls"><img src="/media/imagen/excell.png" title="Descargar Hoja de calculo" class="vtip"></a> {% if  request.user.is_authenticated %}<a href="/descargar/xls-seguridad"><img src="/media/imagen/Excel.png" title="Descargar Hoja de calculo para SPSS" class="vtip"></a>{%endif%}</div> 
+                    <table>
+                    <caption>Tabla de Seguridad Alimentaria</caption>
+                    <thead>
+                        <tr>
+                            <th>
+                               Alimentos 
+                            </th>
+                            <th>
+                                Producen
+                            </th>
+                            <th>
+                                %
+                            </th>
+                            <th>
+                                Comprar
+                            </th>
+                            <th>
+                                %
+                            </th>
+                            <th>
+                                Nivel suficiente de consumo
+                            </th>
+                            <th>
+                                %
+                            </th>
+                        </tr>
+             </thead>
+			{%for item in data%}
+			<tr>
+		            {% for cosito in item%}
+                            <td>
+                                {{cosito}}
+                            </td>
+			     {%endfor%}                           
+                        </tr>
+			{%endfor%}
+        </table>     
+        {% endblock %}
